@@ -179,10 +179,18 @@
                 
                 <div class="pagenumber">
                 <% for(let i = 1; i <= pages; i++) { %>
-                    <% if(i == page) { %>
-                        <a href="<%= url.replace(`page=${page}`, `page=${i}`) %>" class="select"><%= i %></a>
+                    <% if(url.includes('page=')) { %>
+                        <% if(i == page) { %>
+                            <a href="<%= url.replace(`page=${page}`, `page=${i}`) %>" class="select"><%= i %></a>
+                        <% } else { %>
+                            <a href="<%= url.replace(`page=${page}`, `page=${i}`) %>"><%= i %></a>
+                        <% } %>
                     <% } else { %>
-                        <a href="<%= url.replace(`page=${page}`, `page=${i}`) %>"><%= i %></a>
+                        <% if(i == page) { %>
+                            <a href="/?page=<%= i %>" class="select"><%= i %></a>
+                        <% } else { %>
+                            <a href="/?page=<%= i %>"><%= i %></a>
+                        <% } %>
                     <% } %>
                 <% } %> 
                 </div>
