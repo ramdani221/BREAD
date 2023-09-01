@@ -113,57 +113,29 @@
                 </thead>
                 <tbody>
                     <% data.forEach((value,index)=> { %>
-                        <% if(value.married) {%>
-                            <% married = "Yes" %>
-                                <tr>
-                                    <td>
-                                        <%= index + offset + 1 %>
-                                    </td>
-                                    <td>
-                                        <%= value.name %>
-                                    </td>
-                                    <td>
-                                        <%= value.height %>
-                                    </td>
-                                    <td>
-                                        <%= value.weight %>
-                                    </td>
-                                    <td>
-                                        <%= value.birthdate %>
-                                    </td>
-                                    <td>
-                                        <%= married %>
-                                    </td>
-                                    <td>
-                                        <a class="update" href="/form/<%= value.id %>">Update</a>&nbsp<a class="delete" href="/delete/<%= value.id %>" onclick="return confirmation('<%= value.name %>')">Delete</a>
-                                    </td>
-                                </tr>
-                        <% } else if(!value.married) {%>
-                            <% married = "Not Yet" %>
-                                <tr>
-                                    <td>
-                                        <%= index + offset + 1 %>
-                                    </td>
-                                    <td>
-                                        <%= value.name %>
-                                    </td>
-                                    <td>
-                                        <%= value.height %>
-                                    </td>
-                                    <td>
-                                        <%= value.weight %>
-                                    </td>
-                                    <td>
-                                        <%= value.birthdate %>
-                                    </td>
-                                    <td>
-                                        <%= married %>
-                                    </td>
-                                    <td>
-                                        <a class="update" href="/form/<%= value.id %>">Update</a>&nbsp<a class="delete" href="/delete/<%= value.id %>" onclick="return confirmation('<%= value.name %>')">Delete</a>
-                                    </td>
-                                </tr>
-                                <% } %>      
+                        <tr>
+                            <td>
+                                <%= index + offset + 1 %>
+                            </td>
+                            <td>
+                                <%= value.name %>
+                            </td>
+                            <td>
+                                <%= value.height %>
+                            </td>
+                            <td>
+                                <%= value.weight %>
+                            </td>
+                            <td>
+                                <%= value.birthdate %>
+                            </td>
+                            <td>
+                                <%= value.married? "Yes" : "Not Yet" %>
+                            </td>
+                            <td>
+                                <a class="update" href="/form/<%= value.id %>">Update</a>&nbsp<a class="delete" href="/delete/<%= value.id %>" onclick="return confirmation('<%= value.name %>')">Delete</a>
+                            </td>
+                        </tr>
                     <% }) %>
                 </tbody>
             </table>
